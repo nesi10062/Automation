@@ -28,14 +28,16 @@ ID:   ami-03d64741867e7bb94
     KeyName='nesi_kp'
      )
     
-    # starting instances
-    
+ # start instances
+ 
     def start_instances():
     list = input("enter the IDs of the instance you want to start: ")
     ids = list.split(" ")
     ec2 = boto3.resource('ec2')
 
     ec2.instances.filter(InstanceIds = ids).start()
+
+# stop instances
 
 def stop_instances():
     list = input("enter the IDs of the instances you want to stop (minimum 1): ")
@@ -44,6 +46,8 @@ def stop_instances():
 
     ec2.instances.filter(InstanceIds = ids).stop()
 
+# terminate instances
+
 def terminate_instances():
     list = input("enter the IDs of the instances you want to terminate (minimum 1): ")
     ids = list.split(" ")
@@ -51,6 +55,8 @@ def terminate_instances():
 
     ec2.instances.filter(InstanceIds = ids).terminate()
 
+# information about instances:
+#   Instance ID + Public IP Address + Current Status 
 
 def info_instances():
     client = boto3.client('ec2')
@@ -58,11 +64,16 @@ def info_instances():
     for resp in response['Reservations']:
         for instance in resp['Instances']:
             print("\nID: " + instance['InstanceId'])
+            # if ip found: print it. if not: print 'no connection'.
             if instance.get('PublicIpAddress') == None: print('Public IP Address: no connection')
             else: print("Public IP Address: " + instance.get('PublicIpAddress'))
             print("Status: " + instance.get('State')['Name'])
             print("\n--------------------------------------")
 
+# grouping all functions into nice menu
+# user can choose which operation he wants to do
+# options limited 1-5, if user choosing wrong, loop starts over
+# after operation ends, he can decide if he want to do onther operation or to quit.
 
 def menu():
     while (True):
