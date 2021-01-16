@@ -1,6 +1,11 @@
 import boto3
 from time import sleep
 
+# deploying ec2 instnaces,
+# user can choose from the menu below which Amazon Machine Image 
+# he want for the instance creation.
+# he also can decide how many instances he want to deploy.
+
 def deploy_instances():
     print("""
 available images: 
@@ -22,23 +27,26 @@ ID:   ami-03d64741867e7bb94
     InstanceType='t2.micro',
     KeyName='nesi_kp'
      )
-     def start_instances():
-    instances=input("enter the IDs of the instances you want to start (minimum 1): ")
-    ids = [instances]
+    
+    # starting instances
+    
+    def start_instances():
+    list = input("enter the IDs of the instance you want to start: ")
+    ids = list.split(" ")
     ec2 = boto3.resource('ec2')
 
     ec2.instances.filter(InstanceIds = ids).start()
 
 def stop_instances():
-    instances = input("enter the IDs of the instances you want to stop (minimum 1): ")
-    ids = [instances]
+    list = input("enter the IDs of the instances you want to stop (minimum 1): ")
+    ids = list.split(" ")
     ec2 = boto3.resource('ec2')
 
     ec2.instances.filter(InstanceIds = ids).stop()
 
 def terminate_instances():
-    instances=input("enter the IDs of the instances you want to terminate (minimum 1): ")
-    ids = [instances]
+    list = input("enter the IDs of the instances you want to terminate (minimum 1): ")
+    ids = list.split(" ")
     ec2 = boto3.resource('ec2')
 
     ec2.instances.filter(InstanceIds = ids).terminate()
