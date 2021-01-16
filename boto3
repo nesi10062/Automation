@@ -81,17 +81,17 @@ def menu():
 - - - - - - - - - - - - - - - - - - - - 
 menu:
 ~~~~~
-1.deploy instances
-2.terminate instance
-3.start instance
-4.stop instance
-5.get information about instance
+1. deploy instances
+2. terminate instance
+3. start instance
+4. stop instance
+5. get information about all instances
 - - - - - - - - - - - - - - - - - - - -""")
         sleep(1)
         choose = input("\nchoose(1-5):")
         if choose == "1":
+            sleep(1)
             deploy_instances()
-            print("\nanswer: 1")
         elif choose == "2":
             sleep(1)
             terminate_instances()
