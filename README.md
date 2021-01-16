@@ -12,7 +12,7 @@ menu:
 2.terminate instance
 3.start instance
 4.stop instance
-5.get information about instance
+5.get information about instances
 - - - - - - - - - - - - - - - - - - - -
 
 choose(1-5):1
@@ -31,8 +31,6 @@ ID:   ami-03d64741867e7bb94
 insert ImageID: ami-0dd9f0e7df0f0a138
 insert amount: 3
 
-answer: 1
-
 do you want to exit? (yes/no)
 answer: no
 
@@ -43,7 +41,7 @@ menu:
 2.terminate instance
 3.start instance
 4.stop instance
-5.get information about instance
+5.get information about instances
 - - - - - - - - - - - - - - - - - - - -
 
 choose(1-5):5
@@ -55,18 +53,6 @@ Status: stopped
 --------------------------------------
 
 ID: i-0375b3f0ad6d50e57
-Public IP Address: no connection
-Status: stopped
-
---------------------------------------
-
-ID: i-04ef2cf2320a18de2
-Public IP Address: no connection
-Status: stopped
-
---------------------------------------
-
-ID: i-091147d609daa023d
 Public IP Address: no connection
 Status: stopped
 
